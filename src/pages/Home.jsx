@@ -17,55 +17,63 @@ import ProductCard from "../components/UI/product-card/ProductCard";
 import whyImg from "../assets/images/location.png";
 import networkImg from "../assets/images/network.png";
 import TestimonialSlider from "../components/UI/slider/TestimonialSlider";
-const featureData = [
-  {
-    title: "Quick Delivery",
-    imgUrl: featureImg01,
-    desc: "lorem111 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-  {
-    title: "Super Dine In",
-    imgUrl: featureImg02,
-    desc: "lorem222 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-  {
-    title: "Easy Pick Up",
-    imgUrl: featureImg03,
-    desc: "lorem333 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-];
+import Axios from "axios"
+// const featureData = [
+//   {
+//     title: "Quick Delivery",
+//     imgUrl: featureImg01,
+//     desc: "lorem111 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+//   {
+//     title: "Super Dine In",
+//     imgUrl: featureImg02,
+//     desc: "lorem222 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+//   {
+//     title: "Easy Pick Up",
+//     imgUrl: featureImg03,
+//     desc: "lorem333 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+// ];
 const Home = () => {
   const [category, setCategory] = useState("ALL");
   const [allProducts, setAllProducts] = useState(products);
   const [hotPizza, setHotPizza] = useState([]);
+function getData(){
+    Axios.get('http://localhost:3001/gtd').then((response)=>{
+      setAllProducts(response.data.recordset)
+    })
+}
+
   useEffect(() => {
     const filteredPizza = products.filter((item) => item, category === "Pizza");
     const slicePizza = filteredPizza.slice(0, 4);
     setHotPizza(slicePizza);
   }, []);
-  useEffect(() => {
-    if (category === "ALL") {
-      setAllProducts(products);
-    }
-    if (category === "BURGER") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Burger"
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === "PIZZA") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Pizza"
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === "BREAD") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Bread"
-      );
-      setAllProducts(filteredProducts);
-    }
-  }, [category]);
+  // useEffect(() => {
+  //   if (category === "ALL") {
+  //     setAllProducts(products);
+  //   }
+  //   if (category === "BURGER") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Burger"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  //   if (category === "PIZZA") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Pizza"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  //   if (category === "BREAD") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Bread"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  // }, [category]);
+  useEffect(getData, [])
   return (
     <Helmet title="home">
       <section>
@@ -138,7 +146,7 @@ const Home = () => {
                 Accusantium, quibusdam?{" "}
               </p>
             </Col>
-            {featureData.map((item, index) => (
+            {/* {featureData.map((item, index) => (
               <Col lg="4" md="6" sm="6" key={index} className="mt-5">
                 <div className="feature__item text-center px-5 py-3">
                   <img
@@ -150,7 +158,7 @@ const Home = () => {
                   <p>{item.desc}</p>
                 </div>
               </Col>
-            ))}
+            ))} */}
           </Row>
         </Container>
       </section>
