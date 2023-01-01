@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from 'axios'
 
 import { Container, Row, Col } from "reactstrap";
 import categoryImg01 from "../../../assets/images/category-01.png";
@@ -26,16 +27,24 @@ const categoryData = [
   },
 ];
 const Category = () => {
+  const [cat, setCat] = useState([])
+  function getData(){
+    Axios.get('http://localhost:3001/gtc').then((response)=>{
+      setCat(response.data.recordset)
+    })
+  }
+useEffect(getData, [])
+
   return (
     <Container>
       <Row>
-        {categoryData.map((item, index) => (
+        {cat.map((item) => (
           <Col lg="3" md="4" sm="6" xs="6" className="mb-3">
             <div className="category__item d-flex align-items-center gap-3">
               <div className="category__img">
-                <img src={item.imgUrl} alt="category__item  " />
+                
               </div>
-              <h6>{item.display}</h6>
+              <h6>{item.OM_ITEM_CATEGORY}</h6>
             </div>
           </Col>
         ))}
