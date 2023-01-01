@@ -22,7 +22,7 @@ const cartSlice = createSlice({
           id: newItem.OM_ITEM_CODE,
           title: newItem.OM_ITEM_DESCRIPTION,
           image01: newItem.image01,
-          price: newItem.price,
+          price: newItem.OM_ITEM_COST_PRICE,
           quantity: 1,
           totalPrice: newItem.OM_ITEM_COST_PRICE,
         });
