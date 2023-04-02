@@ -18,31 +18,30 @@ import whyImg from "../assets/images/location.png";
 import networkImg from "../assets/images/network.png";
 import TestimonialSlider from "../components/UI/slider/TestimonialSlider";
 import Axios from "axios"
-const featureData = [
-  {
-    title: "Quick Delivery",
-    imgUrl: featureImg01,
-    desc: "lorem111 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-  {
-    title: "Super Dine In",
-    imgUrl: featureImg02,
-    desc: "lorem222 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-  {
-    title: "Easy Pick Up",
-    imgUrl: featureImg03,
-    desc: "lorem333 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-  },
-];
+// const featureData = [
+//   {
+//     title: "Quick Delivery",
+//     imgUrl: featureImg01,
+//     desc: "lorem111 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+//   {
+//     title: "Super Dine In",
+//     imgUrl: featureImg02,
+//     desc: "lorem222 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+//   {
+//     title: "Easy Pick Up",
+//     imgUrl: featureImg03,
+//     desc: "lorem333 Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+//   },
+// ];
 const Home = () => {
   const [category, setCategory] = useState("ALL");
   const [allProducts, setAllProducts] = useState(products);
   const [hotPizza, setHotPizza] = useState([]);
-  const [data, setData] = useState([])
 function getData(){
     Axios.get('http://localhost:3001/gtd').then((response)=>{
-      setData(response.data.recordset)
+      setAllProducts(response.data.recordset)
     })
 }
 
@@ -51,29 +50,29 @@ function getData(){
     const slicePizza = filteredPizza.slice(0, 4);
     setHotPizza(slicePizza);
   }, []);
-  useEffect(() => {
-    if (category === "ALL") {
-      setAllProducts(products);
-    }
-    if (category === "BURGER") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Burger"
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === "PIZZA") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Pizza"
-      );
-      setAllProducts(filteredProducts);
-    }
-    if (category === "BREAD") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "Bread"
-      );
-      setAllProducts(filteredProducts);
-    }
-  }, [category]);
+  // useEffect(() => {
+  //   if (category === "ALL") {
+  //     setAllProducts(products);
+  //   }
+  //   if (category === "BURGER") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Burger"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  //   if (category === "PIZZA") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Pizza"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  //   if (category === "BREAD") {
+  //     const filteredProducts = products.filter(
+  //       (item) => item.category === "Bread"
+  //     );
+  //     setAllProducts(filteredProducts);
+  //   }
+  // }, [category]);
   useEffect(getData, [])
   return (
     <Helmet title="home">
@@ -147,7 +146,7 @@ function getData(){
                 Accusantium, quibusdam?{" "}
               </p>
             </Col>
-            {featureData.map((item, index) => (
+            {/* {featureData.map((item, index) => (
               <Col lg="4" md="6" sm="6" key={index} className="mt-5">
                 <div className="feature__item text-center px-5 py-3">
                   <img
@@ -159,7 +158,7 @@ function getData(){
                   <p>{item.desc}</p>
                 </div>
               </Col>
-            ))}
+            ))} */}
           </Row>
         </Container>
       </section>
@@ -208,8 +207,8 @@ function getData(){
                 </button>
               </div>
             </Col>
-            {data.map((item) => (
-              <Col lg="3" md="4" sm="6" xs="6" key={item.OM_ITEM_CODE} className="mt-5">
+            {allProducts.map((item) => (
+              <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mt-5">
                 <ProductCard item={item} />
               </Col>
             ))}
