@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* <Container>
+      <Container>
         <Row>
           <Col lg="3" md="4" sm="6">
             <div className="footer__logo text-start">
@@ -38,7 +38,7 @@ const Footer = () => {
             <h5 className="footer__title">Contact</h5>
             <ListGroup className="deliver__time-list">
               <ListGroupItem className="delivery__time-item border-0 ps-0">
-                <p>Location: Jayanagar, Banglore, India-560011</p>
+                <p>mombasa, kenya,010823</p>
               </ListGroupItem>
               <ListGroupItem className="delivery__time-item border-0 ps-0">
                 <span> Phone:0123456789</span>
@@ -92,7 +92,7 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-      </Container> */}
+      </Container>
       .
     </footer>
   );
