@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import logo from "../../assets/images/res-logo.png";
 
 import "../../styles/footer.css";
 import { Link } from "react-router-dom";
 const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(new Date());
+
+  console.log(currentYear.getFullYear());
   return (
     <footer className="footer">
       <Container>
@@ -38,7 +41,7 @@ const Footer = () => {
             <h5 className="footer__title">Contact</h5>
             <ListGroup className="deliver__time-list">
               <ListGroupItem className="delivery__time-item border-0 ps-0">
-                <p>mombasa, kenya,010823</p>
+                <p>Exp place1, loc test, 54545</p>
               </ListGroupItem>
               <ListGroupItem className="delivery__time-item border-0 ps-0">
                 <span> Phone:0123456789</span>
@@ -63,7 +66,8 @@ const Footer = () => {
         <Row className="mt-5">
           <Col lg="6" md="6">
             <p className="copyright__text">
-              Copyright - 2022, website made by marstech. All Rights reserved.
+              Copyright - {currentYear?.getFullYear()}, website made by
+              marstech. All Rights reserved.
             </p>
           </Col>
           <Col lg="6" md="6">
