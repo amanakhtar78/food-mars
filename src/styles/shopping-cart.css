@@ -68,3 +68,31 @@
   color: #212245;
   font-weight: 600;
 }
+.cart_bottom {
+  padding: 10px 20px;
+  width: 100%;
+  height: 60px;
+  background: #df2020;
+}
+.cart_bottom h6 {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.cart_bottom h6 span {
+  font-size: 1.3;
+  font-weight: 600;
+}
+
+.cart_bottom button {
+  border: none;
+  padding: 4px 20px;
+  border-radius: 5px;
+  background: #fff;
+  color: #212245;
+}
+.cart_bottom button a {
+  color: #212245;
+  font-weight: 600;
+}

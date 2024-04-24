@@ -33,11 +33,11 @@ const CartItem = ({ item }) => {
     <ListGroupItem className="border-0 cart__item">
       <div className="cart__item-info d-flex gap-2">
         <img src={image01} alt="product-img" />
-        <div className="cart__product-info w-100 d-flex  align-items-center gap-4 justify-content-between">
+        <div className="cart__product-info w-100 d-flex  align-items-center justify-content-between">
           <div>
             <h6 className="cart__product-title">{title}</h6>
             <p className="d-flex align-items-center gap-5 cart__product-price">
-              {quantity}x <span>${totalPrice}</span>
+              {quantity}x <span> {totalPrice} kes</span>
             </p>
             <div className="d-flex align-items-center justify-content-between increase__decrease-btn">
               <span className="decrease__btn" onClick={decreaseItem}>

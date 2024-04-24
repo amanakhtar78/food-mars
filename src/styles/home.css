@@ -18,6 +18,16 @@
   margin-top: 30px;
   padding: 20px 0px;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.hero__service {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
 }
 .food__category button {
   border: none;
@@ -99,6 +109,11 @@
   }
   .food__category {
     padding: 15px;
+    gap: 1px !important;
+  }
+  .hero__service {
+    display: flex;
+    flex-direction: column;
   }
   .food__category button {
     padding: 5px 15px;
@@ -133,6 +148,7 @@
   }
   .hero__service {
     justify-content: center;
+    gap: 1px;
   }
 
   .why__choose-us {
